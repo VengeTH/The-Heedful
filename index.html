@@ -316,7 +316,11 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form class="form">
+                    <form class="form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="8ffd82e6-fc3d-46d4-9630-f4dfeaac075b">
+                        <input type="hidden" name="subject" value="New Contact Form Submission - The Heedful">
+                        <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                        
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -331,7 +335,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder="Type your message here... (Ctrl+Enter to send)"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>

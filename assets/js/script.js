@@ -107,9 +107,20 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', highlightNavLink);
 
     // * Form handling
-    const contactForm = document.querySelector('.form');
+    const contactForm = document.querySelector('#contactForm');
     
     if (contactForm) {
+        // * Ctrl+Enter functionality for message textarea
+        const messageTextarea = document.querySelector('#message');
+        if (messageTextarea) {
+            messageTextarea.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'Enter') {
+                    e.preventDefault();
+                    contactForm.dispatchEvent(new Event('submit'));
+                }
+            });
+        }
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -131,15 +142,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate form submission
+            // Get submit button
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate API call delay
+            // Use a simple approach that works without CORS issues
+            // Create a hidden iframe to submit the form
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.name = 'form-submit-iframe';
+            document.body.appendChild(iframe);
+            
+            // Create a temporary form that submits to the iframe
+            const tempForm = document.createElement('form');
+            tempForm.method = 'POST';
+            tempForm.action = 'https://api.web3forms.com/submit';
+            tempForm.target = 'form-submit-iframe';
+            
+            // Add all form data
+            for (let [key, value] of formData.entries()) {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                tempForm.appendChild(input);
+            }
+            
+            // Add form to DOM, submit, and clean up
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+            
+            // Remove the temporary form and iframe after submission
             setTimeout(() => {
+                document.body.removeChild(tempForm);
+                document.body.removeChild(iframe);
+                
+                // Show success message
                 showNotification('Thank you for your message! We\'ll get back to you soon.', 'success');
                 this.reset();
                 submitBtn.textContent = originalText;
