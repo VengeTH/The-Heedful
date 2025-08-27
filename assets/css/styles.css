@@ -1137,6 +1137,7 @@ textarea:focus {
         gap: 1.5rem;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        z-index: 1003;
     }
     
     .nav-menu.active {
@@ -2166,10 +2167,15 @@ textarea:focus {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 999px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    z-index: 1000;
+    z-index: 998;
     display: flex;
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
+}
+
+/* Hide quick nav when mobile menu is open */
+body.mobile-menu-open .floating-quick-nav {
+    display: none;
 }
 
 .quick-nav-btn {
@@ -2253,6 +2259,13 @@ textarea:focus {
     .nav-cards {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    /* Ensure team grid fits small phones */
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .team-member-card {
+        padding: 1.25rem;
     }
     
     .nav-card {

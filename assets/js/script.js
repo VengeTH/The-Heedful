@@ -38,10 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Prevent body scroll when menu is open
             if (!isActive) {
                 document.body.style.overflow = 'hidden';
+                document.body.classList.add('mobile-menu-open');
                 // Add backdrop for better UX
                 createMobileMenuBackdrop();
             } else {
                 document.body.style.overflow = '';
+                document.body.classList.remove('mobile-menu-open');
                 removeMobileMenuBackdrop();
             }
         });
@@ -476,6 +478,7 @@ function closeMobileMenu() {
         navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
         document.documentElement.style.overflow = '';
+        document.body.classList.remove('mobile-menu-open');
         removeMobileMenuBackdrop();
     }
 }
