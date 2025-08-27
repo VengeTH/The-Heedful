@@ -451,10 +451,10 @@ section {
 
 .aspiration-card {
     background: rgba(255, 255, 255, 0.03);
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-radius: 20px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
@@ -467,14 +467,15 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(249, 115, 22, 0.1));
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(249, 115, 22, 0.15));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.4s ease;
 }
 
 .aspiration-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(124, 58, 237, 0.3);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(124, 58, 237, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(124, 58, 237, 0.2);
 }
 
 .aspiration-card:hover::before {
@@ -482,10 +483,18 @@ section {
 }
 
 .aspiration-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 2;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(124, 58, 237, 0.3));
+    transition: all 0.4s ease;
+}
+
+.aspiration-card:hover .aspiration-icon {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.6));
 }
 
 .aspiration-card h3 {
@@ -506,15 +515,24 @@ section {
 
 .aspiration-status {
     display: inline-block;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(249, 115, 22, 0.2));
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(249, 115, 22, 0.3));
     color: var(--text-white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     font-size: 0.875rem;
-    font-weight: 500;
-    border: 1px solid rgba(124, 58, 237, 0.3);
+    font-weight: 600;
+    border: 1px solid rgba(124, 58, 237, 0.4);
     position: relative;
     z-index: 2;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.aspiration-card:hover .aspiration-status {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.5), rgba(249, 115, 22, 0.5));
+    border-color: rgba(124, 58, 237, 0.6);
+    transform: scale(1.05);
 }
 
 /* Vision Section */
@@ -620,31 +638,76 @@ section {
 
 .value-card {
     background: rgba(255, 255, 255, 0.03);
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
 }
 
 .value-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(249, 115, 22, 0.3);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+.value-card:hover::before {
+    opacity: 0.05;
+}
+
+.value-icon-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1.5rem;
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+    transition: all 0.4s ease;
+}
+
+.value-card:hover .value-icon {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
 }
 
 .value-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
 }
 
 .value-card p {
     color: var(--text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
 }
 
 /* About Us Section */
@@ -1340,7 +1403,19 @@ textarea:focus {
     }
     
     .value-card {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .value-icon {
+        font-size: 2.5rem;
+    }
+    
+    .value-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .value-card p {
+        font-size: 0.9rem;
     }
     
     /* Contact Section */
