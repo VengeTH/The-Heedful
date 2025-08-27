@@ -1,0 +1,59 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Logo gradient -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="50%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main logo symbol (centered) -->
+  <g transform="translate(50, 50)">
+    <!-- Outer flowing shape -->
+    <path d="M 0 -25 
+             C 18 -25, 35 -12, 35 0
+             C 35 12, 18 25, 0 25
+             C -18 25, -35 12, -35 0
+             C -35 -12, -18 -25, 0 -25 Z
+             
+             M 12 -12
+             C 20 -12, 26 -6, 26 0
+             C 26 6, 20 12, 12 12
+             C 4 12, -2 6, -2 0
+             C -2 -6, 4 -12, 12 -12 Z" 
+          fill="url(#logoGradient)" 
+          opacity="0.9"
+          filter="url(#glow)">
+      <animateTransform attributeName="transform" type="rotate" values="0; 360" dur="20s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Inner flowing ribbons -->
+    <path d="M -15 -9 
+             Q 0 -15, 15 -9
+             Q 9 0, 15 9
+             Q 0 15, -15 9
+             Q -9 0, -15 -9 Z" 
+          fill="none" 
+          stroke="url(#logoGradient)" 
+          stroke-width="2" 
+          opacity="0.95"
+          filter="url(#glow)">
+      <animateTransform attributeName="transform" type="rotate" values="360; 0" dur="15s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Central core -->
+    <circle r="5" fill="url(#logoGradient)" opacity="1" filter="url(#glow)">
+      <animate attributeName="r" values="5; 7; 5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heedful - Brand Guide</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .brand-guide {
+            background: var(--dark-bg);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+        
+        .brand-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .brand-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 0;
+            background: var(--dark-secondary);
+            border-radius: 20px;
+        }
+        
+        .brand-section {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .color-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .color-swatch {
+            height: 100px;
+            width: 100%;
+        }
+        
+        .color-info {
+            padding: 1.5rem;
+        }
+        
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+        
+        .color-values {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .logo-variant {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo-variant img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+        
+        .typography-sample {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .font-display {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .usage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .usage-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .do { border-left: 4px solid #10b981; }
+        .dont { border-left: 4px solid #ef4444; }
+        
+        .brand-values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .gradient-sample {
+            height: 60px;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-white);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-guide">
+        <div class="brand-container">
+            <a href="index.html" class="back-link">← Back to Website</a>
+            
+            <div class="brand-header">
+                <img src="logo.svg" alt="The Heedful Logo" style="width: 120px; height: 120px; margin-bottom: 2rem;">
+                <h1 class="section-title">The Heedful</h1>
+                <p class="section-subtitle">Brand Guidelines & Visual Identity</p>
+                <p style="color: var(--text-muted); margin-top: 1rem;">Thoughtful Innovation • Purposeful Growth</p>
+            </div>
+
+            <!-- Brand Story -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Brand Story</h2>
+                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+                    The Heedful represents a transformative journey from curiosity to purpose-driven innovation. 
+                    Born from the realization that true technological power comes not from breaking systems, 
+                    but from building meaningful solutions that serve humanity's greatest needs.
+                </p>
+                <p style="color: var(--text-muted); line-height: 1.7;">
+                    Our name reflects our core philosophy: to be mindful, careful, and purposeful in everything we create. 
+                    We are an all-purpose technology company that doesn't just innovate for innovation's sake, 
+                    but creates solutions that empower people and drive positive change across industries.
+                </p>
+            </div>
+
+            <!-- Logo & Symbol -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Logo & Symbol</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                    The Heedful logo represents dynamic innovation through flowing, interconnected elements that symbolize 
+                    thoughtful progress and purposeful growth. The rotating design elements reflect our adaptive nature 
+                    and continuous evolution.
+                </p>
+                
+                <div class="logo-showcase">
+                    <div class="logo-variant">
+                        <img src="logo.svg" alt="Primary Logo">
+                        <h4 style="color: var(--text-white); margin-bottom: 0.5rem;">Primary Logo</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">Use on dark backgrounds</p>
+                    </div>
+                    <div class="logo-variant" style="background: rgba(255, 255, 255, 0.9);">
+                        <img src="logo.svg" alt="Logo on Light" style="filter: brightness(0.8);">
+                        <h4 style="color: #1a1d3a; margin-bottom: 0.5rem;">On Light Backgrounds</h4>
+                        <p style="color: #64748b; font-size: 0.875rem;">Adjust opacity for visibility</p>
+                    </div>
+                    <div class="logo-variant">
+                        <img src="logo.svg" alt="Small Logo" style="width: 40px; height: 40px;">
+                        <h4 style="color: var(--text-white); margin-bottom: 0.5rem;">Small Size</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">Minimum 24px width</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Color Palette -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Color Palette</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                    Our color palette combines vibrant, forward-thinking hues with sophisticated dark tones, 
+                    reflecting both innovation and professionalism.
+                </p>
+                
+                <div class="color-palette">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #00d4ff;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Cyan</div>
+                            <div class="color-values">
+                                HEX: #00d4ff<br>
+                                RGB: 0, 212, 255<br>
+                                HSL: 195°, 100%, 50%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #7c3aed;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Purple</div>
+                            <div class="color-values">
+                                HEX: #7c3aed<br>
+                                RGB: 124, 58, 237<br>
+                                HSL: 262°, 83%, 58%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #f97316;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Primary Orange</div>
+                            <div class="color-values">
+                                HEX: #f97316<br>
+                                RGB: 249, 115, 22<br>
+                                HSL: 25°, 95%, 53%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #0f1020;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Dark Primary</div>
+                            <div class="color-values">
+                                HEX: #0f1020<br>
+                                RGB: 15, 16, 32<br>
+                                HSL: 236°, 36%, 9%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #1a1d3a;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Dark Secondary</div>
+                            <div class="color-values">
+                                HEX: #1a1d3a<br>
+                                RGB: 26, 29, 58<br>
+                                HSL: 234°, 38%, 16%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #ffffff;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Text White</div>
+                            <div class="color-values">
+                                HEX: #ffffff<br>
+                                RGB: 255, 255, 255<br>
+                                HSL: 0°, 0%, 100%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--text-white); margin: 3rem 0 1rem;">Brand Gradient</h3>
+                <div class="gradient-sample" style="background: linear-gradient(135deg, #00d4ff, #7c3aed, #f97316);"></div>
+                <p style="color: var(--text-muted); font-size: 0.875rem; font-family: 'Courier New', monospace;">
+                    linear-gradient(135deg, #00d4ff, #7c3aed, #f97316)
+                </p>
+            </div>
+
+            <!-- Typography -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Typography</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                    Inter is our primary typeface, chosen for its excellent readability, modern appearance, 
+                    and versatility across digital platforms.
+                </p>
+                
+                <div class="typography-sample">
+                    <div class="font-display">The Heedful</div>
+                    <h3 style="color: var(--text-white); margin-bottom: 0.5rem;">Inter - Primary Typeface</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                        A versatile sans-serif designed for user interfaces with excellent legibility at all sizes.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                        <div>
+                            <div style="font-weight: 300; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Light 300</div>
+                            <div style="font-weight: 400; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Regular 400</div>
+                            <div style="font-weight: 500; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Medium 500</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">SemiBold 600</div>
+                            <div style="font-weight: 700; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Bold 700</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Values -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Core Values</h2>
+                <div class="brand-values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">🎯</div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Heedful</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            Mindful and careful in our approach, considering long-term impact
+                        </p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🎪</div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Purposeful</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            Every project serves meaningful purpose, addressing real problems
+                        </p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">💡</div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Innovative</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            Push boundaries while staying grounded in practical solutions
+                        </p>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">🚀</div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Empowering</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            Technologies designed to empower people and create opportunities
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usage Guidelines -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Usage Guidelines</h2>
+                <div class="usage-grid">
+                    <div class="usage-card do">
+                        <h4 style="color: #10b981; margin-bottom: 1rem;">✓ Do</h4>
+                        <ul style="color: var(--text-muted); line-height: 1.6;">
+                            <li>Use the logo on dark backgrounds for maximum impact</li>
+                            <li>Maintain clear space around the logo equal to the logo height</li>
+                            <li>Use the brand gradient for accent elements and highlights</li>
+                            <li>Keep the logo proportions intact when scaling</li>
+                            <li>Use Inter font family for all text elements</li>
+                        </ul>
+                    </div>
+                    <div class="usage-card dont">
+                        <h4 style="color: #ef4444; margin-bottom: 1rem;">✗ Don't</h4>
+                        <ul style="color: var(--text-muted); line-height: 1.6;">
+                            <li>Stretch or distort the logo</li>
+                            <li>Use the logo smaller than 24px width</li>
+                            <li>Place the logo on busy or conflicting backgrounds</li>
+                            <li>Change the logo colors or remove the gradient</li>
+                            <li>Use multiple fonts in the same design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice & Tone -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Voice & Tone</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Professional</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            We communicate with expertise and authority while remaining approachable and human.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Thoughtful</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            Our messaging reflects careful consideration and deep understanding of complex challenges.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Inspiring</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            We motivate others to think bigger and pursue meaningful innovation that creates positive impact.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--text-white); margin-bottom: 1rem;">Clear</h4>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            We avoid jargon and communicate complex ideas in accessible, understandable language.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission Statement -->
+            <div class="brand-section">
+                <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Mission Statement</h2>
+                <div style="text-align: center; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; border-left: 4px solid var(--primary-cyan);">
+                    <p style="font-size: 1.25rem; color: var(--text-white); line-height: 1.7; font-style: italic;">
+                        "Where ideas meet impact. We drive purposeful innovation, building technologies that empower people, 
+                        and shaping a future guided by vision and care."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
