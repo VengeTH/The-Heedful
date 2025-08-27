@@ -27,41 +27,62 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
+            const isActive = navMenu.classList.contains('active');
+            
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
             
+            // Update aria-expanded for accessibility
+            navToggle.setAttribute('aria-expanded', !isActive);
+            
             // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
+            if (!isActive) {
                 document.body.style.overflow = 'hidden';
+                // Add backdrop for better UX
+                createMobileMenuBackdrop();
             } else {
                 document.body.style.overflow = '';
+                removeMobileMenuBackdrop();
             }
         });
 
         // Close mobile menu when clicking on a link
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMobileMenu();
             });
         });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.style.overflow = '';
+                closeMobileMenu();
             }
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Handle orientation changes
+        window.addEventListener('orientationchange', function() {
+            setTimeout(() => {
+                if (navMenu.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            }, 100);
         });
     }
 
-    // * Navbar scroll effect
+    // * Navbar scroll effect with mobile optimization
     const navbar = document.querySelector('.navbar');
     let lastScrollTop = 0;
+    let ticking = false;
 
-    window.addEventListener('scroll', function() {
+    function updateNavbar() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         // Add/remove scrolled class for styling
@@ -71,14 +92,27 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.classList.remove('scrolled');
         }
         
-        // Hide/show navbar on scroll
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            navbar.style.transform = 'translateY(-100%)';
+        // Hide/show navbar on scroll (only on desktop to prevent mobile menu issues)
+        if (window.innerWidth > 768) {
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
         } else {
+            // Always show navbar on mobile
             navbar.style.transform = 'translateY(0)';
         }
         
         lastScrollTop = scrollTop;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
     });
 
     // * Active navigation link highlighting
@@ -293,8 +327,11 @@ function createFloatingParticles() {
     const particleContainer = document.querySelector('.floating-particles');
     if (!particleContainer) return;
 
+    // Reduce particles on mobile for better performance
+    const particleCount = window.innerWidth <= 768 ? 4 : 8;
+
     // Create additional floating particles
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'floating-particle';
         
@@ -316,7 +353,8 @@ function createFloatingParticles() {
             opacity: '0.6',
             filter: 'blur(1px)',
             animation: `float ${duration}s ease-in-out infinite`,
-            animationDelay: `${delay}s`
+            animationDelay: `${delay}s`,
+            willChange: 'transform'
         });
         
         particleContainer.appendChild(particle);
@@ -424,6 +462,131 @@ function throttle(func, limit) {
             inThrottle = true;
             setTimeout(() => inThrottle = false, limit);
         }
+    }
+}
+
+// * Mobile-specific helper functions
+function closeMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    
+    if (navMenu && navToggle) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        removeMobileMenuBackdrop();
+    }
+}
+
+function createMobileMenuBackdrop() {
+    // Remove existing backdrop
+    removeMobileMenuBackdrop();
+    
+    const backdrop = document.createElement('div');
+    backdrop.className = 'mobile-menu-backdrop';
+    backdrop.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        height: calc(var(--vh, 1vh) * 100);
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    `;
+    
+    document.body.appendChild(backdrop);
+    
+    // Animate in
+    requestAnimationFrame(() => {
+        backdrop.style.opacity = '1';
+    });
+    
+    // Close menu when clicking backdrop
+    backdrop.addEventListener('click', closeMobileMenu);
+    
+    // Prevent scrolling on backdrop
+    backdrop.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+}
+
+function removeMobileMenuBackdrop() {
+    const backdrop = document.querySelector('.mobile-menu-backdrop');
+    if (backdrop) {
+        backdrop.style.opacity = '0';
+        setTimeout(() => {
+            if (backdrop.parentNode) {
+                backdrop.parentNode.removeChild(backdrop);
+            }
+        }, 300);
+    }
+}
+
+// * Touch and swipe gestures for mobile
+function addTouchGestures() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navMenu) {
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+    }
+    
+    function handleSwipe() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const minSwipeDistance = 50;
+        
+        // Swipe right to close mobile menu when it's open
+        if (deltaX > minSwipeDistance && Math.abs(deltaY) < minSwipeDistance) {
+            if (navMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+    }
+}
+
+// * Viewport height fix for mobile browsers
+function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Initialize mobile enhancements
+addTouchGestures();
+setViewportHeight();
+
+// Update viewport height on resize and orientation change
+window.addEventListener('resize', throttle(setViewportHeight, 100));
+window.addEventListener('orientationchange', function() {
+    setTimeout(setViewportHeight, 100);
+});
+
+// * Performance monitoring for mobile
+if ('connection' in navigator) {
+    const connection = navigator.connection;
+    if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+        // Reduce animations on slow connections
+        document.documentElement.classList.add('reduce-motion');
     }
 }
 

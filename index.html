@@ -12,6 +12,8 @@
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -19,7 +21,7 @@
                                  <img src="assets/images/logo.svg" alt="The Heedful Logo" class="logo-icon">
                 <span class="logo-text">The Heedful</span>
             </div>
-            <div class="nav-menu">
+            <div class="nav-menu" role="navigation" aria-label="Main navigation">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#about-us" class="nav-link">About Us</a>
@@ -29,15 +31,16 @@
                 <a href="team.html" class="nav-link">Team</a>
                 <a href="brand-guide.html" class="nav-link">Brand Guide</a>
             </div>
-            <div class="nav-toggle">
+            <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
+    <main id="main-content">
     <section id="home" class="hero">
         <div class="hero-background">
             <div class="floating-particles"></div>
@@ -48,7 +51,7 @@
             </div>
             <h1 class="hero-title">The Heedful</h1>
             <p class="hero-subtitle">Thoughtful Innovation • Purposeful Growth</p>
-            <p class="hero-description">Where ideas meet impact. Driving purposeful innovation, building technologies that empower people, and shaping a future guided by vision and care.</p>
+            <p class="hero-description">A technology startup focused on software development and digital solutions. We build with vision—creating today's innovations while architecting tomorrow's possibilities across future industries.</p>
             <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary">Discover Our Story</a>
                 <a href="#services" class="btn btn-secondary">Explore Services</a>
@@ -81,7 +84,7 @@
                     <div class="story-card">
                         <div class="story-icon">🚀</div>
                         <h3>The Vision</h3>
-                        <p>Today, we're building an all-purpose technology company that doesn't just innovate for innovation's sake, but creates meaningful solutions across industries - from software to healthcare, from games to enterprise solutions.</p>
+                        <p>Today, we're building a technology startup focused on software and digital solutions, with the long-term vision of expanding into healthcare, automotive, and other industries as we grow and succeed.</p>
                     </div>
                 </div>
             </div>
@@ -98,8 +101,8 @@
             <div class="about-us-grid">
                 <div class="about-us-card">
                     <h3 style="margin-bottom: 1rem;">The Heedful in Practice</h3>
-                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem;">We are a technology studio built on curiosity, craft, and care. We design and ship software that solves real problems, with a focus on quality and long-term impact. We collaborate closely with founders, organizations, and communities to turn ideas into useful products.</p>
-                    <p style="color: var(--text-muted); line-height: 1.8;">Our work spans web and mobile apps, platforms, games, and research prototypes. Each engagement follows a simple approach: understand deeply, design clearly, build reliably, and iterate thoughtfully.</p>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem;">We are a technology startup built on curiosity, craft, and care. We design and ship software that solves real problems, with a focus on quality and long-term impact. We collaborate closely with founders, organizations, and communities to turn ideas into useful products.</p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">Our current work spans web and mobile apps, platforms, games, and research prototypes. Each engagement follows a simple approach: understand deeply, design clearly, build reliably, and iterate thoughtfully. Our vision extends to transforming multiple industries as we grow.</p>
                     <div class="kpis">
                         <div class="kpi"><h4>Mindful</h4><p>We measure twice, cut once</p></div>
                         <div class="kpi"><h4>Purpose</h4><p>Every feature serves a goal</p></div>
@@ -108,14 +111,38 @@
                     </div>
                 </div>
                 <div class="about-us-card">
-                    <h3 style="margin-bottom: 1rem;">What We Value</h3>
-                    <ul style="color: var(--text-muted); line-height: 1.8; list-style: none; padding-left: 0;">
-                        <li>• Clear communication and respectful teamwork</li>
-                        <li>• Privacy, security, and responsible technology</li>
-                        <li>• Accessible, inclusive digital experiences</li>
-                        <li>• Sustainable, maintainable engineering</li>
-                    </ul>
-                    <div style="margin-top: 1.5rem;">
+                    <h3 style="margin-bottom: 1.5rem;">What We Value</h3>
+                    <div class="values-list">
+                        <div class="value-item">
+                            <div class="value-icon">🤝</div>
+                            <div class="value-text">
+                                <h4>Clear Communication</h4>
+                                <p>Respectful teamwork and transparent collaboration</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🔒</div>
+                            <div class="value-text">
+                                <h4>Privacy & Security</h4>
+                                <p>Responsible technology that protects users</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">♿</div>
+                            <div class="value-text">
+                                <h4>Accessibility</h4>
+                                <p>Inclusive digital experiences for everyone</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🌱</div>
+                            <div class="value-text">
+                                <h4>Sustainability</h4>
+                                <p>Maintainable engineering for the long term</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 2rem;">
                         <a href="#contact" class="btn btn-primary">Work With Us</a>
                         <a href="#services" class="btn btn-secondary" style="margin-left: .5rem;">See Services</a>
                     </div>
@@ -129,7 +156,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">What We Do</h2>
-                <p class="section-subtitle">Comprehensive solutions across multiple domains</p>
+                <p class="section-subtitle">Current focus with future vision</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -202,13 +229,49 @@
         </div>
     </section>
 
+    <!-- Future Aspirations Section -->
+    <section class="future-aspirations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Future Aspirations</h2>
+                <p class="section-subtitle">Industries we aim to transform as we grow</p>
+            </div>
+            <div class="aspirations-grid">
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">🏥</div>
+                    <h3>Healthcare Technology</h3>
+                    <p>Advanced medical software, digital health solutions, and healthcare platforms to improve patient outcomes worldwide.</p>
+                    <div class="aspiration-status">Future Division</div>
+                </div>
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">🚗</div>
+                    <h3>Automotive Innovation</h3>
+                    <p>Connected vehicles, autonomous systems, and smart mobility solutions for the future of transportation.</p>
+                    <div class="aspiration-status">Future Division</div>
+                </div>
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">🏭</div>
+                    <h3>Industrial Solutions</h3>
+                    <p>Smart manufacturing, Industry 4.0 implementations, and automated systems for traditional industries.</p>
+                    <div class="aspiration-status">Future Division</div>
+                </div>
+                <div class="aspiration-card">
+                    <div class="aspiration-icon">🌍</div>
+                    <h3>Sustainable Technology</h3>
+                    <p>Environmental solutions, green technology, and sustainable innovations for a better planet.</p>
+                    <div class="aspiration-status">Future Division</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Vision Section -->
     <section id="vision" class="vision">
         <div class="container">
             <div class="vision-content">
                 <div class="vision-text">
                     <h2 class="section-title">Our Long-term Vision</h2>
-                    <p class="vision-description">We believe technology should serve humanity's greatest needs. While we start with software and digital solutions, our vision extends far beyond code.</p>
+                    <p class="vision-description">We believe technology should serve humanity's greatest needs. Starting with software and digital solutions, our vision extends far beyond code to transform multiple industries as we grow.</p>
                     <div class="vision-goals">
                         <div class="goal-item">
                             <div class="goal-icon">🏥</div>
@@ -335,7 +398,8 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required placeholder="Type your message here... (Ctrl+Enter to send)"></textarea>
+                            <textarea id="message" name="message" rows="5" required placeholder="Type your message here... (Ctrl+Enter to send)" aria-describedby="message-hint"></textarea>
+                            <small id="message-hint" style="color: var(--text-muted); font-size: 0.875rem;">Use Ctrl+Enter to quickly send your message</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -380,6 +444,7 @@
             </div>
         </div>
     </footer>
+    </main>
 
     <script src="assets/js/script.js"></script>
 </body>

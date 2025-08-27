@@ -21,6 +21,18 @@
             padding: 0 2rem;
         }
         
+        @media (max-width: 768px) {
+            .brand-container {
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-container {
+                padding: 0 0.75rem;
+            }
+        }
+        
         .brand-header {
             text-align: center;
             margin-bottom: 4rem;
@@ -37,11 +49,33 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        @media (max-width: 768px) {
+            .brand-section {
+                padding: 2rem;
+                border-radius: 15px;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-section {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+        }
+        
         .color-palette {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .color-palette {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
         }
         
         .color-card {
@@ -77,6 +111,13 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-showcase {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
         
         .logo-variant {
@@ -118,6 +159,13 @@
             margin-top: 2rem;
         }
         
+        @media (max-width: 768px) {
+            .usage-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        
         .usage-card {
             background: rgba(255, 255, 255, 0.05);
             padding: 2rem;
@@ -133,6 +181,13 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .brand-values-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
         
         .value-item {
@@ -167,10 +222,59 @@
         .back-link:hover {
             color: var(--primary-cyan);
         }
+        
+        /* Additional mobile styles */
+        @media (max-width: 768px) {
+            .typography-weights {
+                grid-template-columns: 1fr !important;
+                gap: 0.5rem !important;
+            }
+            
+            .voice-tone-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            
+            .font-display {
+                font-size: 2rem !important;
+            }
+            
+            .brand-header {
+                padding: 2rem 0 !important;
+            }
+            
+            .brand-header img {
+                width: 80px !important;
+                height: 80px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .typography-weights {
+                margin-top: 1rem !important;
+            }
+            
+            .font-display {
+                font-size: 1.5rem !important;
+            }
+            
+            .brand-header h1 {
+                font-size: 2rem !important;
+            }
+            
+            .brand-header img {
+                width: 60px !important;
+                height: 60px !important;
+                margin-bottom: 1rem !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <div class="brand-guide">
+        <main id="main-content">
         <div class="brand-container">
             <a href="index.html" class="back-link">← Back to Website</a>
             
@@ -328,7 +432,7 @@
                         A versatile sans-serif designed for user interfaces with excellent legibility at all sizes.
                     </p>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;" class="typography-weights">
                         <div>
                             <div style="font-weight: 300; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Light 300</div>
                             <div style="font-weight: 400; font-size: 1.5rem; color: var(--text-white); margin-bottom: 0.5rem;">Regular 400</div>
@@ -407,7 +511,7 @@
             <!-- Voice & Tone -->
             <div class="brand-section">
                 <h2 style="color: var(--text-white); margin-bottom: 2rem; font-size: 2rem;">Voice & Tone</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;" class="voice-tone-grid">
                     <div>
                         <h4 style="color: var(--text-white); margin-bottom: 1rem;">Professional</h4>
                         <p style="color: var(--text-muted); font-size: 0.875rem;">
@@ -446,6 +550,7 @@
                 </div>
             </div>
         </div>
+        </main>
     </div>
 </body>
 </html>

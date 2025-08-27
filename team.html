@@ -12,6 +12,8 @@
     <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
 </head>
 <body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -19,25 +21,26 @@
                 <img src="assets/images/logo.svg" alt="The Heedful Logo" class="logo-icon">
                 <span class="logo-text">The Heedful</span>
             </div>
-            <div class="nav-menu">
+            <div class="nav-menu" role="navigation" aria-label="Main navigation">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="index.html#about" class="nav-link">About</a>
                 <a href="index.html#about-us" class="nav-link">About Us</a>
                 <a href="index.html#services" class="nav-link">Services</a>
                 <a href="index.html#vision" class="nav-link">Vision</a>
                 <a href="index.html#contact" class="nav-link">Contact</a>
-                <a href="team.html" class="nav-link active">Team</a>
+                <a href="team.html" class="nav-link active" aria-current="page">Team</a>
                 <a href="brand-guide.html" class="nav-link">Brand Guide</a>
             </div>
-            <div class="nav-toggle">
+            <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- Team Hero Section -->
+    <main id="main-content">
     <section class="team-hero">
         <div class="container">
             <div class="team-hero-content">
@@ -81,15 +84,15 @@
                         </div>
                         
                         <div class="member-links">
-                            <a href="https://vengeth.netlify.app" target="_blank" class="member-link portfolio">
+                            <a href="https://vengeth.netlify.app" target="_blank" class="member-link portfolio" rel="noopener noreferrer" aria-label="Visit Prinze's portfolio website">
                                 <span class="link-icon">🌐</span>
                                 Portfolio
                             </a>
-                            <a href="https://www.github.com/VengeTH" target="_blank" class="member-link github">
+                            <a href="https://www.github.com/VengeTH" target="_blank" class="member-link github" rel="noopener noreferrer" aria-label="Visit Prinze's GitHub profile">
                                 <span class="link-icon">💻</span>
                                 GitHub
                             </a>
-                            <a href="mailto:thvenge@gmail.com" class="member-link email">
+                            <a href="mailto:thvenge@gmail.com" class="member-link email" aria-label="Send email to Prinze">
                                 <span class="link-icon">📧</span>
                                 Email
                             </a>
@@ -334,6 +337,7 @@
             </div>
         </div>
     </footer>
+    </main>
 
     <script src="assets/js/script.js"></script>
 </body>
