@@ -1403,7 +1403,13 @@ textarea:focus {
     }
     
     .value-card {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
+        text-align: left;
+    }
+    
+    .value-icon-wrapper {
+        margin-bottom: 1rem;
+        text-align: center;
     }
     
     .value-icon {
@@ -1412,10 +1418,23 @@ textarea:focus {
     
     .value-card h3 {
         font-size: 1.25rem;
+        text-align: center;
+        margin-bottom: 0.75rem;
     }
     
     .value-card p {
         font-size: 0.9rem;
+        text-align: center;
+        line-height: 1.6;
+    }
+    
+    .value-card::before {
+        display: none;
+    }
+    
+    .value-card:hover {
+        transform: none;
+        box-shadow: none;
     }
     
     /* Contact Section */
@@ -2136,12 +2155,130 @@ textarea:focus {
     flex-wrap: wrap;
 }
 
+/* Floating quick nav */
+.floating-quick-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 16, 32, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.quick-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    color: var(--text-white);
+    text-decoration: none;
+    font-size: 0.875rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.quick-nav-btn:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.15);
+}
+
+.quick-nav-btn span {
+    display: none;
+}
+
+@media (min-width: 420px) {
+    .quick-nav-btn span { display: inline; }
+}
+
+/* Team Navigation Section */
+.team-navigation {
+    background: rgba(255, 255, 255, 0.02);
+    padding: var(--section-padding);
+}
+
+.nav-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.nav-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.nav-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-white);
+}
+
+.nav-card p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.nav-card .btn {
+    margin-top: auto;
+}
+
+/* Mobile styles for team navigation */
+@media (max-width: 768px) {
+    .nav-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .nav-card {
+        padding: 1.5rem;
+    }
+    
+    .nav-icon {
+        font-size: 2rem;
+    }
+    
+    .nav-card h3 {
+        font-size: 1.125rem;
+    }
+    
+    .nav-card p {
+        font-size: 0.9rem;
+    }
+}
+
 /* Print styles */
 @media print {
     .navbar,
     .nav-toggle,
     .hero-buttons,
-    .contact-form {
+    .contact-form,
+    .team-navigation {
         display: none !important;
     }
     
