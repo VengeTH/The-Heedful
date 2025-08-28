@@ -1085,6 +1085,18 @@ textarea:focus {
         margin: 0 auto;
     }
     
+    /* Stack vision goals on tablets/phones */
+    .goal-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+    .goal-icon {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+    
     .values-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
